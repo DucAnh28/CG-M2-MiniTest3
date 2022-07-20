@@ -14,15 +14,17 @@ public class MaterialManager {
         list.add(material);
     }
 
-    // xóa sản phẩm:
+    //   xóa sản phẩm:
     private void removeMaterial(Material material) {
         list.remove(material);
     }
 
-    //    sửa sản phẩm theo tên:
-    public void fixMaterial(String name) {
+    //   sửa sản phẩm theo tên:
+    public void editMaterial(String id) {
+        boolean isExisted = false;
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getName().equals(name)) {
+            if (list.get(i).getId() == id) {
+                isExisted = true;
 
             }
         }

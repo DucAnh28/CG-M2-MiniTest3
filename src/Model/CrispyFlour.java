@@ -13,6 +13,7 @@ public class CrispyFlour extends Material implements Discount {
         this.quantity = quantity;
     }
 
+
     @Override
     public double getAmount() {
         return quantity * getCost();
