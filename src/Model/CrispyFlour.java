@@ -2,7 +2,7 @@ package Model;
 
 import java.time.LocalDate;
 
-public class CrispyFlour extends Material implements Discount{
+public class CrispyFlour extends Material implements Discount {
     private int quantity;
 
     public CrispyFlour() {
@@ -34,6 +34,8 @@ public class CrispyFlour extends Material implements Discount{
     @Override
     public double getRealMoney() {
         LocalDate now = LocalDate.now();
-        if (now)
+        if (now.plusMonths(4).isAfter(getExpireDate())) return getAmount() * 20 / 100;
+        else if (now.plusMonths(2).isAfter(getExpireDate())) return getAmount() * 40 / 100;
+        else return getAmount() * 10 / 100;
     }
 }
