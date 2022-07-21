@@ -8,7 +8,7 @@ public class Meat extends Material implements Discount{
     public Meat() {
     }
 
-    public Meat(String id, String name, LocalDate manufacturingDate, int cost, double weight) {
+    public Meat(String id, String name, String manufacturingDate, int cost, double weight) {
         super(id, name, manufacturingDate, cost);
         this.weight = weight;
     }
@@ -23,7 +23,7 @@ public class Meat extends Material implements Discount{
 
     @Override
     public double getAmount() {
-        return weight*getCost();
+        return weight*this.getCost();
     }
 
     @Override
@@ -38,5 +38,10 @@ public class Meat extends Material implements Discount{
             return getAmount()*30/100;
         } else
             return getAmount()*10/100;
+    }
+
+    @Override
+    public String toString() {
+        return "Meat "+super.toString()+", weight = " +getWeight() ;
     }
 }
