@@ -18,9 +18,8 @@ public class Client {
 //        ducanh.addMaterial(addMeat());
 //        ducanh.addMaterial(addCrispyFlour());
 //        ducanh.displayMaterial();
-//        ducanh.editMeat(checkID(),editMeat());
-//        ducanh.editMeat(checkID(),editCrispyFlour());
 //        ducanh.displayMaterial();
+        ducanh.exchangeRateDifference();
     }
 
     public static int checkID(){

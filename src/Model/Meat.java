@@ -35,9 +35,9 @@ public class Meat extends Material implements Discount{
     public double getRealMoney() {
         LocalDate now = LocalDate.now();
         if (now.minusDays(5).isAfter(getExpireDate())){
-            return getAmount()*30/100;
+            return getAmount()*(1-30/100);
         } else
-            return getAmount()*10/100;
+            return getAmount()*(1-10/100);
     }
 
     @Override

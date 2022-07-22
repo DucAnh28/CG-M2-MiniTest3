@@ -12,9 +12,9 @@ public class MaterialManager {
     public static List<Material> list = new LinkedList<>();
 
     static {
-        Meat meat1 = new Meat("M1", "Steek", "2022-07-17", 80, 40);
-        Meat meat2 = new Meat("M2", "Chicken", "2022-07-18", 50, 80);
-        Meat meat3 = new Meat("M3", "Pork", "2022-07-19", 5, 2);
+        Meat meat1 = new Meat("M1", "Steek", "2022-07-18", 80, 40);
+        Meat meat2 = new Meat("M2", "Chicken", "2022-07-19", 50, 80);
+        Meat meat3 = new Meat("M3", "Pork", "2022-07-20", 5, 2);
         CrispyFlour crispyFlour1 = new CrispyFlour("CF1", "BotGiat", "2022-02-19", 20, 2);
         CrispyFlour crispyFlour2 = new CrispyFlour("CF2", "BotMy", "2022-03-19", 20, 1);
         CrispyFlour crispyFlour3 = new CrispyFlour("CF3", "BotMem", "2022-04-19", 20, 3);
@@ -52,6 +52,15 @@ public class MaterialManager {
         list.remove(material);
     }
 
-//    Tính discount
-    public
+    //    Tính discount
+    public void exchangeRateDifference() {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) instanceof Meat){
+                System.out.println("Product :" + list.get(i).getName()+" Giá gốc: " +list.get(i).getAmount() +" Giá chiết khấu: " + ((Meat) list.get(i)).getRealMoney());
+            }
+            else if (list.get(i) instanceof CrispyFlour){
+                System.out.println("Product :" + list.get(i).getName()+" Giá gốc: " +list.get(i).getAmount() +" Giá chiết khấu: " + ((CrispyFlour) list.get(i)).getRealMoney());
+            }
+        }
+    }
 }
