@@ -58,7 +58,7 @@ public abstract class Material {
     public String toString() {
         return  "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", manufacturingDate=" + manufacturingDate +
+                ", manufacturingDate = " + manufacturingDate +
                 ", cost=" + cost ;
     }
 }

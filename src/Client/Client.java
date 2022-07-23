@@ -11,18 +11,13 @@ import java.util.Scanner;
 
 public class Client {
     public static List<Material> list = MaterialManager.list;
+    public static MaterialManager ducanh = new MaterialManager();
 
     public static void main(String[] args) {
-        MaterialManager ducanh = new MaterialManager();
-        ducanh.displayMaterial();
-//        ducanh.addMaterial(addMeat());
-//        ducanh.addMaterial(addCrispyFlour());
-//        ducanh.displayMaterial();
-//        ducanh.displayMaterial();
-        ducanh.exchangeRateDifference();
+        choice();
     }
 
-    public static int checkID(){
+    public static int checkID() {
         int temp = 0;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter ID: ");
@@ -69,7 +64,7 @@ public class Client {
         return crispyFlour;
     }
 
-    public static void editMaterial(){
+    public static void editMaterial() {
         int cham = checkID();
         Material temp = list.get(cham);
         Scanner scanner = new Scanner(System.in);
@@ -84,11 +79,63 @@ public class Client {
         if (temp instanceof Meat) {
             System.out.print("Enter weight: ");
             ((Meat) temp).setWeight(scanner.nextDouble());
-        }
-        else if (temp instanceof CrispyFlour){
+        } else if (temp instanceof CrispyFlour) {
             System.out.print("Enter quantity: ");
             ((CrispyFlour) temp).setQuantity(scanner.nextInt());
         }
-        list.set(cham,temp);
+        list.set(cham, temp);
+    }
+
+    public static void choice() {
+        Scanner scanner = new Scanner(System.in);
+        int choice = -8;
+        while (choice != 0) {
+            System.out.println("-----------------------------------------");
+            System.out.println("Menu");
+            System.out.println("1. Display Material");
+            System.out.println("2. Add Material");
+            System.out.println("3. Edit Material By ID");
+            System.out.println("4. Delete Material");
+            System.out.println("5. Total Price ");
+            System.out.println("0. Exit");
+            System.out.println("Enter your choice: ");
+            choice = scanner.nextInt();
+            System.out.println("------------------------------------------");
+            switch (choice) {
+                case 1:
+                    ducanh.displayMaterial();
+                    break;
+                case 2:
+                    System.out.println("Add Meat");
+                    System.out.println("Add CrispyFlour");
+                    int option = scanner.nextInt();
+                    switch (option) {
+                        case 1:
+                            ducanh.addMaterial(addMeat());
+                            break;
+                        case 2:
+                            ducanh.addMaterial(addCrispyFlour());
+                            break;
+                        default:
+                            System.out.println("Not Avaliale");
+                    }
+                    break;
+                case 3:
+                    editMaterial();
+                    break;
+                case 4:
+                    ducanh.removeMaterial(checkID());
+                    break;
+                case 5:
+                    ducanh.exchangeRateDifference();
+                    break;
+                case 0:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("No choice");
+                    break;
+            }
+        }
     }
 }
